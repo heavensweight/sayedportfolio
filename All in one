@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sayed Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ----- GLOBAL STYLES ----- */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #a0c4ff, #3a86ff); /* blueish gradient */
+  color: #222;
+  overflow-x: hidden;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111;
+  padding: 15px 25px;
+  color: white;
+}
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+}
+nav a:hover {
+  opacity: 0.7;
+}
+
+section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* ----- INTERACTIVE REVEAL BUTTON ----- */
+.reveal-box {
+  margin-top: 30px;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+}
+
+.reveal-btn {
+  padding: 12px 25px;
+  background: #111;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+}
+.reveal-btn:hover {
+  background: #333;
+}
+
+/* Hidden fun area */
+.hidden-area {
+  margin-top: 20px;
+  padding: 25px;
+  background: #e8e8ff;
+  border-radius: 10px;
+  display: none;
+  animation: pop 0.4s ease-in-out;
+}
+@keyframes pop {
+  0% { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Fun floating icons */
+.float-icon {
+  position: absolute;
+  font-size: 22px;
+  opacity: 0.7;
+  animation: floatUp 2s linear forwards;
+}
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 0.9; }
+  100% { transform: translateY(-120px); opacity: 0; }
+}
+
+/* Floating image style */
+.float-image {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+  animation: floatUpImage 2s linear forwards;
+}
+@keyframes floatUpImage {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-140px); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="logo">SayedPortfolio</div>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+  <h1>Hello, I'm Sayed 👋</h1>
+  <p>Welcome to my interactive portfolio experience.  
+     What you’re about to see is not a normal CV website — it’s more fun.</p>
+  
+  <div class="reveal-box">
+    <h3>Click the button to reveal something interesting👇</h3>
+    <button class="reveal-btn" onclick="revealFun()">Reveal</button>
+    
+    <div class="hidden-area" id="funArea">
+      🎉 Surprise!  
+      <br><br>
+      This page has interactive elements. Click anywhere to spawn effects!
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>I'm Sayed, and I enjoy creating interesting, fun, and interactive things.  
+     This website is here to surprise the person reading my CV 😄.</p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+  <ul>
+    <li>Logistics & Coordination</li>
+    <li>Administration</li>
+    <li>Computer Skills</li>
+    <li>Creative Thinking</li>
+    <li>Basic Web Projects</li>
+  </ul>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+  <p>This website itself is a project — built to show creativity + personality.</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: your-email@example.com</p>
+</section>
+
+<script>
+// GIF image uploaded
+const floatImageURL = "data:image/jpeg;base64,REPLACE_WITH_BASE64"; // placeholder, we will convert your uploaded image
+
+function revealFun() {
+  const box = document.getElementById("funArea");
+  box.style.display = "block";
+}
+
+// Fun floating emoji + image effect
+document.addEventListener("click", function(e) {
+  const emojiList = ["✨","🔥","💫","🎉","⭐","⚡","🌟"];
+  const emoji = emojiList[Math.floor(Math.random()*emojiList.length)];
+
+  // create emoji
+  const span = document.createElement("div");
+  span.classList.add("float-icon");
+  span.style.left = e.pageX + "px";
+  span.style.top = e.pageY + "px";
+  span.innerText = emoji;
+  document.body.appendChild(span);
+  setTimeout(()=>{ span.remove(); }, 1800);
+
+  // create floating image
+  const img = document.createElement("img");
+  img.src = floatImageURL;
+  img.classList.add("float-image");
+  img.style.left = (e.pageX - 25) + "px";
+  img.style.top = (e.pageY - 25) + "px";
+  document.body.appendChild(img);
+  setTimeout(()=>{ img.remove(); }, 2000);
+});
+</script>
+
+</body>
+</html>
