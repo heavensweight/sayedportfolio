@@ -4,126 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sayed Portfolio</title>
-
-    <style>
-        /* ----- GLOBAL STYLES ----- */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(180deg, #a0c4ff, #3a86ff); /* blueish gradient */
-            color: #222;
-            overflow-x: hidden;
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #111;
-            padding: 15px 25px;
-            color: white;
-        }
-        nav a {
-            color: white;
-            margin-left: 20px;
-            text-decoration: none;
-        }
-        nav a:hover {
-            opacity: 0.7;
-        }
-
-        section {
-            padding: 60px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
-
-        /* ----- INTERACTIVE REVEAL BUTTON ----- */
-        .reveal-box {
-            margin-top: 30px;
-            padding: 30px;
-            background: white;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
-        }
-
-        .reveal-btn {
-            padding: 12px 25px;
-            background: #111;
-            color: white;
-            border-radius: 8px;
-            cursor: pointer;
-            border: none;
-            font-size: 16px;
-        }
-        .reveal-btn:hover {
-            background: #333;
-        }
-
-        /* Hidden fun area */
-        .hidden-area {
-            margin-top: 20px;
-            padding: 25px;
-            background: #e8e8ff;
-            border-radius: 10px;
-            display: none;
-            animation: pop 0.4s ease-in-out;
-        }
-        @keyframes pop {
-            0% { transform: scale(0.7); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        /* Fun floating icons */
-        .float-icon {
-            position: absolute;
-            font-size: 22px;
-            opacity: 0.7;
-            animation: floatUp 2s linear forwards;
-        }
-        @keyframes floatUp {
-            0% { transform: translateY(0); opacity: 0.9; }
-            100% { transform: translateY(-120px); opacity: 0; }
-        }
-
-        /* ----- RESPONSIVE DESIGN ----- */
-        @media only screen and (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 10px;
-            }
-            nav a {
-                margin-left: 0;
-                margin-top: 10px;
-                font-size: 16px;
-            }
-            section {
-                padding: 40px 10px;
-                max-width: 100%;
-            }
-            .reveal-box {
-                width: 100%;
-                padding: 20px;
-            }
-            .reveal-btn {
-                width: 100%;
-                padding: 15px;
-            }
-        }
-
-        @media only screen and (max-width: 480px) {
-            h1 {
-                font-size: 22px;
-            }
-            .reveal-btn {
-                font-size: 14px;
-            }
-            .hidden-area {
-                font-size: 14px;
-            }
-        }
-    </style>
+    
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -150,7 +33,6 @@
         
         <!-- Hidden fun area with the surprise GIF -->
         <div class="hidden-area" id="funArea">
-            <!-- The correct direct GIF URL from GitHub -->
             <img src="https://raw.githubusercontent.com/heavensweight/sayedportfolio/main/cat-please.gif" alt="Surprise GIF" id="surpriseGif">
         </div>
     </div>
@@ -186,28 +68,8 @@
     <p>Email: your-email@example.com</p>
 </section>
 
-<script>
-// Function to reveal the surprise GIF
-function revealFun() {
-    const box = document.getElementById("funArea");
-    box.style.display = "block"; // Show the GIF when button is clicked
-}
-
-// Fun floating emoji effect
-document.addEventListener("click", function(e) {
-    const emojiList = ["✨","🔥","💫","🎉","⭐","⚡","🌟"];
-    const emoji = emojiList[Math.floor(Math.random()*emojiList.length)];
-
-    // create emoji
-    const span = document.createElement("div");
-    span.classList.add("float-icon");
-    span.style.left = e.pageX + "px";
-    span.style.top = e.pageY + "px";
-    span.innerText = emoji;
-    document.body.appendChild(span);
-    setTimeout(()=>{ span.remove(); }, 1800);
-});
-</script>
+<!-- Link to External JavaScript -->
+<script src="js/script.js"></script>
 
 </body>
 </html>
