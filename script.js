@@ -7,14 +7,14 @@ function revealFun() {
 // Fun floating emoji effect
 document.addEventListener("click", function(e) {
     const emojiList = ["✨","🔥","💫","🎉","⭐","⚡","🌟"];
-    const emoji = emojiList[Math.floor(Math.random()*emojiList.length)];
+    const emoji = emojiList[Math.floor(Math.random() * emojiList.length)];
 
-    // create emoji
+    // Create emoji
     const span = document.createElement("div");
     span.classList.add("float-icon");
     span.style.left = e.pageX + "px";
     span.style.top = e.pageY + "px";
     span.innerText = emoji;
     document.body.appendChild(span);
-    setTimeout(()=>{ span.remove(); }, 1800);
+    setTimeout(() => { span.remove(); }, 1800);
 });
