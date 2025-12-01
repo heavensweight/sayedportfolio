@@ -1,7 +1,7 @@
 // Function to reveal the surprise GIF
 function revealFun() {
     const box = document.getElementById("funArea");
-    box.style.display = "block"; // Show the GIF when button is clicked
+    box.style.display = "block"; // Show the GIF when the button is clicked
 }
 
 // Fun floating emoji effect
